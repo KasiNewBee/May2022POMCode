@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -16,8 +17,7 @@ public class BasePage {
 	
 	public WebDriver driver;
 	
-	
-	
+
 	public WebDriver init_Driver(String browser)
 	{
 		if(browser.equalsIgnoreCase("chrome"))
@@ -34,6 +34,8 @@ public class BasePage {
 		driver.manage().timeouts().implicitlyWait(2000, TimeUnit.SECONDS);
 		driver.manage().window().maximize();
 		driver.manage().deleteAllCookies();
+		driver.manage().timeouts().pageLoadTimeout(2000, TimeUnit.SECONDS);
+		Alert a = driver.switchTo().alert().A
 		return driver;
 	}
 
